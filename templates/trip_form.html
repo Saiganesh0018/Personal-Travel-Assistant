@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ 'Edit Trip' if trip else 'Add Trip' }} | TravelMate</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="auth-page">
+
+<div class="auth-card trip-form-card">
+
+    <a href="{{ url_for('trips') }}" class="logo">✈ TravelMate</a>
+
+    <h1>{{ 'Edit Your Trip' if trip else 'Plan a New Trip' }}</h1>
+    <p>Enter your travel details below.</p>
+
+    {% with messages = get_flashed_messages() %}
+        {% for message in messages %}
+            <div class="message">{{ message }}</div>
+        {% endfor %}
+    {% endwith %}
+
+    <form method="POST">
+
+        <label>Destination</label>
+        <input type="text"
+               name="destination"
+               placeholder="Example: Goa, India"
+               value="{{ trip.destination if trip else '' }}"
+               required>
+
+        <label>Start Date</label>
+        <input type="date"
+               name="start_date"
+               value="{{ trip.start_date if trip else '' }}"
+               required>
+
+        <label>End Date</label>
+        <input type="date"
+               name="end_date"
+               value="{{ trip.end_date if trip else '' }}"
+               required>
+
+        <label>Estimated Budget (₹)</label>
+        <input type="number"
+               name="budget"
+               min="0"
+               step="0.01"
+               placeholder="Example: 15000"
+               value="{{ trip.budget if trip else '' }}"
+               required>
+
+        <label>Notes (Optional)</label>
+        <textarea name="notes"
+                  rows="3"
+                  placeholder="Add your travel plans...">{{ trip.notes if trip else '' }}</textarea>
+
+        <button type="submit" class="auth-button">
+            {{ 'Save Changes' if trip else 'Create Trip' }}
+        </button>
+
+    </form>
+
+    <p class="auth-link">
+        <a href="{{ url_for('trips') }}">← Back to My Trips</a>
+    </p>
+
+</div>
+
+</body>
+</html>

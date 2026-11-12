@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Trips | TravelMate</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<header class="navbar">
+    <a href="/" class="logo">✈ TravelMate</a>
+
+    <nav>
+        <a href="{{ url_for('dashboard') }}">Dashboard</a>
+        <a href="{{ url_for('trips') }}">My Trips</a>
+    </nav>
+
+    <a href="{{ url_for('logout') }}" class="nav-button">Logout</a>
+</header>
+
+<main class="trips-page">
+
+    <div class="trips-heading">
+        <div>
+            <p class="eyebrow">YOUR JOURNEY COLLECTION</p>
+            <h1>My Trips</h1>
+            <p>All your travel plans in one place.</p>
+        </div>
+
+        <a href="{{ url_for('add_trip') }}" class="primary-button">
+            + Add New Trip
+        </a>
+    </div>
+
+    {% if trips %}
+
+    <div class="trip-grid">
+
+        {% for trip in trips %}
+
+        <div class="trip-card">
+
+            <div class="trip-card-icon">✈️</div>
+
+            <h2>{{ trip.destination }}</h2>
+
+            <p class="trip-date">
+                {{ trip.start_date }} → {{ trip.end_date }}
+            </p>
+
+            <p class="trip-budget">
+                Budget: ₹{{ trip.budget }}
+            </p>
+
+            <p class="trip-notes">
+                {{ trip.notes }}
+            </p>
+
+            <div class="trip-actions">
+
+                <a href="{{ url_for('edit_trip', trip_id=trip.id) }}"
+                   class="edit-button">
+                    Edit
+                </a>
+
+                <form method="POST"
+                      action="{{ url_for('delete_trip', trip_id=trip.id) }}"
+                      onsubmit="return confirm('Delete this trip?')">
+
+                    <button type="submit" class="delete-button">
+                        Delete
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+    {% else %}
+
+    <div class="empty-trips">
+        <div>🌍</div>
+        <h2>No trips planned yet</h2>
+        <p>Your next adventure is waiting!</p>
+
+        <a href="{{ url_for('add_trip') }}" class="primary-button">
+            Plan My First Trip
+        </a>
+    </div>
+
+    {% endif %}
+
+</main>
+
+</body>
+</html>

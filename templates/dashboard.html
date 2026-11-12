@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | TravelMate</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<main class="dashboard">
+    <p class="eyebrow">YOUR PERSONAL TRAVEL SPACE</p>
+    <h1>Welcome, {{ name }}!</h1>
+    <p>Your next adventure starts with a plan.</p>
+
+    <div class="dashboard-grid">
+
+        <a href="{{ url_for('trips') }}" class="dashboard-card">
+            <span>🧭</span>
+            <h3>My Trips</h3>
+            <p>Add, edit and manage your travel plans.</p>
+            <strong>Manage Trips →</strong>
+        </a>
+
+        <div class="dashboard-card">
+            <span>📅</span>
+            <h3>Itinerary</h3>
+            <p>Organize your daily travel activities.</p>
+            <small>Coming next</small>
+        </div>
+
+        <div class="dashboard-card">
+            <span>💰</span>
+            <h3>Budget Tracker</h3>
+            <p>Keep your travel expenses organized.</p>
+            <small>Coming next</small>
+        </div>
+
+        <div class="dashboard-card">
+            <span>🎒</span>
+            <h3>Packing Checklist</h3>
+            <p>Prepare everything before your journey.</p>
+            <small>Coming next</small>
+        </div>
+
+    </div>
+</main>
+</body>
+</html>

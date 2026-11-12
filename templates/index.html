@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Travel Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <header class="navbar">
+        <a href="/" class="logo">✈ TravelMate</a>
+        <nav>
+            <a href="/">Home</a>
+            <a href="#features">Features</a>
+            <a href="#about">About</a>
+        </nav>
+        <a href="#features" class="nav-button">Explore Trips</a>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <p class="eyebrow">YOUR JOURNEY STARTS HERE</p>
+                <h1>Explore the world.<br>We'll plan the rest.</h1>
+                <p class="description">
+                    Organize your destinations, plan your itinerary,
+                    manage your budget and enjoy every moment of your journey.
+                </p>
+                <a href="#features" class="primary-button">Start Planning →</a>
+            </div>
+        </section>
+
+        <section id="features" class="features">
+            <p class="eyebrow">TRAVEL MADE SIMPLE</p>
+            <h2>Everything for your next adventure</h2>
+
+            <div class="feature-grid">
+                <article class="feature-card">
+                    <span>🧭</span>
+                    <h3>Plan Your Trips</h3>
+                    <p>Organize your destinations and travel dates in one place.</p>
+                </article>
+
+                <article class="feature-card">
+                    <span>📅</span>
+                    <h3>Travel Itinerary</h3>
+                    <p>Prepare daily schedules and activities for your trip.</p>
+                </article>
+
+                <article class="feature-card">
+                    <span>💰</span>
+                    <h3>Manage Budget</h3>
+                    <p>Track expenses and keep your travel spending organized.</p>
+                </article>
+
+                <article class="feature-card">
+                    <span>🎒</span>
+                    <h3>Packing Checklist</h3>
+                    <p>Remember everything you need before you leave.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <h2>Travel more. Worry less.</h2>
+            <p>Your personal companion for planning memorable journeys.</p>
+        </section>
+    </main>
+
+    <footer>
+        © 2026 Personal Travel Assistant. All rights reserved.
+    </footer>
+
+</body>
+</html>
